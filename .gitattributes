@@ -1,0 +1,2 @@
+jni-test/app/libs/armeabi-v7a/libv8_base.a filter=lfs diff=lfs merge=lfs -text
+jni-test/app/libs/armeabi-v7a/libv8_snapshot.a filter=lfs diff=lfs merge=lfs -text
