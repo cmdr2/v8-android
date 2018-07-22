@@ -3,6 +3,8 @@ Example Android Studio project that embeds v8 (plus some notes on compiling v8 f
 
 The intention is to embed v8 inside an Android app, and this project is an example of getting "Hello World" from Javascript to show up on the Android app (using v8).
 
+**Uses?** I needed it for building a native Android game, with Javascript as a scripting language for modding. Your uses may vary.
+
 Disclaimer: This was a learning exercise, and the steps below were the ones that finally worked. I'm sure there is room to reduce the binary size and improve things. I followed [ibon's excellent guide](https://medium.com/@hyperandroid/compile-v8-for-arm-7-df45372f9d4e), but needed to change a few things to make it work.
 
 ## How to use:
