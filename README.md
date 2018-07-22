@@ -8,6 +8,7 @@ Disclaimer: This was a learning exercise, and the steps below were the ones that
 ## How to use:
 *Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
 
+### In Android Studio:
 1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio.
 2. Run the project after connecting your phone via USB.
 
