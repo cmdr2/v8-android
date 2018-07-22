@@ -82,4 +82,4 @@ The key gotcha was that the `.a` files created by the build didn't seem to work 
 
 Then the order in CMakeList was important: v8_base followed by v8_snapshot.
 
-Another thing to remember: this process will probably take 30 GB of disk space, and download probably 15 GB of stuff. This could be because it downloaded stuff a few times, mostly because of my sheer incompetence at compiling v8. But size your VM disk, time and patience accordingly.
+Another thing to remember: the v8 compilation process will probably take 30 GB of disk space, and download probably 15 GB of stuff. This could be because it downloaded stuff a few times, mostly because of my sheer incompetence at compiling v8. But size your VM disk, time and patience accordingly.
