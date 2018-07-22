@@ -6,6 +6,8 @@ The intention is to embed v8 inside an Android app, and this project is an examp
 Disclaimer: This was a learning exercise, and the steps below were the ones that finally worked. I'm sure there is room to reduce the binary size and improve things.
 
 ## How to use:
+*Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
+
 1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio.
 2. Run the project after connecting your phone via USB.
 
