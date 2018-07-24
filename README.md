@@ -11,7 +11,7 @@ I needed it for building an Android game, which used Javascript as a scripting l
 *Disclaimer: This was a learning exercise, and the steps below were the ones that finally worked. I'm sure there is room to reduce the binary size and improve things. I followed [ibon's excellent guide](https://medium.com/@hyperandroid/compile-v8-for-arm-7-df45372f9d4e), but needed to change a few things to make it work.*
 
 ## How to use:
-*Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
+*Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file (~7mb) incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
 
 ### In Android Studio:
 1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio.
@@ -22,7 +22,7 @@ Incase it has issues, try renaming the `app/libs/armeabi-v7a` directory to your 
 This uses a prebuilt v8 library for Android, compiled from the 6.8 branch of v8 on July 22, 2018 (5b8126a8d6fa0c58c89c2d618264ee087d6795a1 (HEAD -> 6.8, tag: lkgr/6.8, tag: 6.8.275.2)). You may want to create a new binary.
 
 ## Files of interest:
-1. The compiled APK file, if you want to try: [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk)
+1. The compiled APK file, if you want to try: [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk)  (~7mb)
 2. The [CMakeLists.txt](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/CMakeLists.txt) for linking the v8 libraries
 3. The [native-lib.cc](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/src/main/cpp/native-lib.cpp) C++ file that contains a 'Hello World' v8 program, and gets called by [MyActivity.java](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/src/main/java/org/cmdr2/jnitest/MyActivity.java)
 4. The v8 library binaries compiled for Android on July 20, 2018: [libv8_base.a](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/libs/armeabi-v7a/libv8_base.a) and [libv8_snapshot.a](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/libs/armeabi-v7a/libv8_snapshot.a).
