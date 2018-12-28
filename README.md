@@ -14,7 +14,7 @@ I needed it for building an Android game, which used Javascript as a scripting l
 *Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file (~7mb) incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
 
 ### In Android Studio:
-1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio. **important:** Do NOT download as ZIP, instead clone this repository using git.
+1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio. **Important:** Do NOT download as ZIP, instead clone this repository using git.
 2. Confirm your device's ABI (via Google?). If it doesn't support `armeabi-v7a` ABI, update the ABI filter in [build.grade](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/build.gradle#L18) with your device's ABI format, and rename the `app/libs/armeabi-v7a` directory as well.
 3. Run the project after connecting your phone via USB.
 
