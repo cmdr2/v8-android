@@ -3,7 +3,7 @@ Example Android Studio project that embeds v8 (plus some notes on compiling v8 f
 
 The intention is to embed v8 inside an Android app, and this project is an example of getting "Hello World" from Javascript to show up on the Android app (using v8).
 
-**Note:** If you actually want to use Javascript inside your Android app, I recommend you use [J2V8](https://github.com/eclipsesource/J2V8) instead (unless you need to make 1000s of calls/sec between JS and the runtime, in which case you should use this project's approach to avoid the [JNI overhead in J2V8](https://github.com/eclipsesource/J2V8/issues/194#issuecomment-252958734)). This project is a learning exercise, or a starting point to start a v8 binding from scratch.
+**Note:** If you actually want to use Javascript inside your Android app, I recommend you use [J2V8](https://github.com/eclipsesource/J2V8) instead (unless you need to make 100s of calls/sec between JS and the runtime, in which case you should use this project's approach to avoid the [JNI overhead in J2V8](https://github.com/eclipsesource/J2V8/issues/194#issuecomment-252958734)). This project is a learning exercise, or a starting point to start a v8 binding from scratch.
 
 ## Example uses for v8 in Android
 I needed it for building an Android game, which used Javascript as a scripting language for modding. Other engines weren't performant-enough or embeddable. Your uses may vary.
