@@ -3,24 +3,23 @@ Example Android Studio project that embeds v8 (plus some notes on compiling v8 f
 
 The intention is to embed v8 inside an Android app, and this project is an example of getting "Hello World" from Javascript to show up on the Android app (using v8).
 
-**Note:** If you actually want to use Javascript inside your Android app, I recommend you use [J2V8](https://github.com/eclipsesource/J2V8) instead (unless you need to make 100s of calls/sec between JS and the runtime, in which case you should use this project's approach to avoid the [JNI overhead in J2V8](https://github.com/eclipsesource/J2V8/issues/194#issuecomment-252958734)). This project is a learning exercise, or a starting point to start a v8 binding from scratch.
+**Note:** If you're building a production/real-world Android app, I recommend you use [J2V8](https://github.com/eclipsesource/J2V8) instead (unless you need to make 100s of calls/sec between JS and the runtime, in which case you should use this project's approach to avoid the [JNI overhead in J2V8](https://github.com/eclipsesource/J2V8/issues/194#issuecomment-252958734)). This project is a learning exercise, or a starting point to start a v8 binding from scratch, for higher raw performance.
 
 ## Example uses for v8 in Android
 I needed it for building an Android game, which used Javascript as a scripting language for modding. Other engines weren't performant-enough or embeddable. Your uses may vary.
 
-*Disclaimer: This was a learning exercise, and the steps below were the ones that finally worked. I'm sure there is room to reduce the binary size and improve things. I followed [ibon's excellent guide](https://medium.com/@hyperandroid/compile-v8-for-arm-7-df45372f9d4e), but needed to change a few things to make it work.*
+I'm sure there is room to reduce the binary size and improve things. I followed [ibon's excellent guide](https://medium.com/@hyperandroid/compile-v8-for-arm-7-df45372f9d4e), but needed to change a few things to make it work (hence this doc).
 
 ## How to use:
 *Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file (~7mb) incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
 
 ### In Android Studio:
 1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio. **Important:** Do NOT download as ZIP, instead clone this repository using git.
-2. Confirm your device's ABI (via Google?). If it doesn't support `armeabi-v7a` ABI, update the ABI filter in [build.grade](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/build.gradle#L18) with your device's ABI format, and rename the `app/libs/armeabi-v7a` directory as well.
-3. Run the project after connecting your phone via USB.
+2. Run the project after connecting your phone via USB.
 
-Incase it has issues, try renaming the `app/libs/armeabi-v7a` directory to your phone's ABI format, like `app/libs/arm64-v8a` or something. Or maybe just edit the `app/CMakeLists.txt` file and remove the `${ANDROID_ABI}` parameter.
+Incase it has issues, try renaming the `app/libs/armeabi-v7a` directory to your phone's ABI format, like `app/libs/arm64-v8a` and update the ABI filter in [build.grade](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/build.gradle#L18) with your device's ABI format. Or maybe just edit the `app/CMakeLists.txt` file and remove the `${ANDROID_ABI}` parameter. Confirm your device's ABI (via Google?).
 
-This uses a prebuilt v8 library for Android, compiled from the 6.8 branch of v8 on July 22, 2018 (5b8126a8d6fa0c58c89c2d618264ee087d6795a1 (HEAD -> 6.8, tag: lkgr/6.8, tag: 6.8.275.2)). You may want to create a new binary.
+This uses a prebuilt v8 library for Android, compiled from the 6.8 branch of v8 on July 22, 2018 (5b8126a8d6fa0c58c89c2d618264ee087d6795a1 (HEAD -> 6.8, tag: lkgr/6.8, tag: 6.8.275.2)). You may want to create a new binary, with the latest v8 changes.
 
 ## Files of interest:
 1. The compiled APK file, if you want to try: [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk)  (~7mb)
