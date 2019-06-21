@@ -14,7 +14,7 @@ I'm sure there is room to reduce the binary size and improve things. I followed 
 *Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file (~7mb) incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
 
 ### In Android Studio:
-1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio. **Important:** Do NOT download as ZIP, instead clone this repository using git.
+1. Clone this repository, and open the `jni-test` directory as a project in your Android Studio.
 2. Run the project after connecting your phone via USB.
 
 Incase it has issues, try renaming the `app/libs/armeabi-v7a` directory to your phone's ABI format, like `app/libs/arm64-v8a` and update the ABI filter in [build.grade](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/build.gradle#L18) with your device's ABI format. Or maybe just edit the `app/CMakeLists.txt` file and remove the `${ANDROID_ABI}` parameter. Confirm your device's ABI (via Google?).
@@ -36,7 +36,7 @@ This uses a prebuilt v8 library for Android, compiled from version 7.2.502.24 of
 6. Use v8 in the native C++ file, which gets called from the Java Android Activity via JNI.
 
 ## For compiling v8:
-**Tip:** Before compiling your own v8, check other repositories like [](https://github.com/godmodelabs/ejecta-v8) if they have already compiled a new v8 version (and remember to copy the `include` folder as well!).
+**Tip:** Before compiling your own v8, check other repositories like [ejecta-v8](https://github.com/godmodelabs/ejecta-v8) if they have already compiled a new v8 version (and remember to copy the `include` folder as well!).
 
 0. Build on Ubuntu (or some Linux with ELF and glibc). I was on a Mac, so I created a Virtual Machine and used Ubuntu Server for a minimal distro. Give it atleast 40 GB of disk (can use dynamic resize).
 1. Follow https://github.com/v8/v8/wiki/Building-from-Source
