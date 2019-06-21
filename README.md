@@ -19,13 +19,13 @@ I'm sure there is room to reduce the binary size and improve things. I followed 
 
 Incase it has issues, try renaming the `app/libs/armeabi-v7a` directory to your phone's ABI format, like `app/libs/arm64-v8a` and update the ABI filter in [build.grade](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/build.gradle#L18) with your device's ABI format. Or maybe just edit the `app/CMakeLists.txt` file and remove the `${ANDROID_ABI}` parameter. Confirm your device's ABI (via Google?).
 
-This uses a prebuilt v8 library for Android, compiled from the 6.8 branch of v8 on July 22, 2018 (5b8126a8d6fa0c58c89c2d618264ee087d6795a1 (HEAD -> 6.8, tag: lkgr/6.8, tag: 6.8.275.2)). You may want to create a new binary, with the latest v8 changes.
+This uses a prebuilt v8 library for Android, compiled from version 7.2.502.24 of v8 (released Jan 24, 2019). You may want to create a new binary, with the latest v8 changes.
 
 ## Files of interest:
 1. The compiled APK file, if you want to try: [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk)  (~7mb)
 2. The [CMakeLists.txt](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/CMakeLists.txt) for linking the v8 libraries
 3. The [native-lib.cc](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/src/main/cpp/native-lib.cpp) C++ file that contains a 'Hello World' v8 program, and gets called by [MyActivity.java](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/src/main/java/org/cmdr2/jnitest/MyActivity.java)
-4. The v8 library binaries compiled for Android on July 20, 2018: [libv8_base.a](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/libs/armeabi-v7a/libv8_base.a) and [libv8_snapshot.a](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/libs/armeabi-v7a/libv8_snapshot.a).
+4. The v8 library binary compiled for Android from version 7.2.502.24 (released Jan 24, 2019): [libv8.a](https://github.com/cmdr2/v8-android/blob/master/jni-test/app/libs/armeabi-v7a/libv8.a).
 
 ## Here's what was done broadly:
 1. Compile v8 for android_arm target
@@ -36,6 +36,8 @@ This uses a prebuilt v8 library for Android, compiled from the 6.8 branch of v8 
 6. Use v8 in the native C++ file, which gets called from the Java Android Activity via JNI.
 
 ## For compiling v8:
+**Tip:** Before compiling your own v8, check other repositories like [](https://github.com/godmodelabs/ejecta-v8) if they have already compiled a new v8 version (and remember to copy the `include` folder as well!).
+
 0. Build on Ubuntu (or some Linux with ELF and glibc). I was on a Mac, so I created a Virtual Machine and used Ubuntu Server for a minimal distro. Give it atleast 40 GB of disk (can use dynamic resize).
 1. Follow https://github.com/v8/v8/wiki/Building-from-Source
 2. But before running `v8gen.py`, first run `echo "target_os = ['android']" >> /path/to/workingDir/.gclient && gclient sync`

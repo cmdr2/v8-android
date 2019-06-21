@@ -68,7 +68,7 @@ Java_org_cmdr2_jnitest_MyActivity_stringFromV8(
     v8::Local<v8::Value> result = script->Run(context).ToLocalChecked();
 
     // Convert the result to an UTF8 string and print it.
-    v8::String::Utf8Value utf8(result);
+    v8::String::Utf8Value utf8(isolate, result);
     printf("%s\n", *utf8);
     hello += *utf8;
 
