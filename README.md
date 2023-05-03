@@ -8,7 +8,7 @@ The intention is to embed v8 inside an Android app, and this project is an examp
 ## Example uses for v8 in Android
 I needed it for building an Android game, which used Javascript as a scripting language for modding. Other engines weren't performant-enough or embeddable. Your uses may vary.
 
-I'm sure there is room to reduce the binary size and improve things. I followed [ibon's excellent guide](https://medium.com/@hyperandroid/compile-v8-for-arm-7-df45372f9d4e), but needed to change a few things to make it work with recent changes (hence this doc).
+I'm sure there is room to reduce the binary size and improve things. I followed [ibon's excellent guide](https://web.archive.org/web/20211205173952/http://hyperandroid.com/2020/02/12/compile-v8-arm-arm64-ia32/), but needed to change a few things to make it work with recent changes (hence this doc).
 
 ## How to use:
 *Install the [jni-test.apk](https://github.com/cmdr2/v8-android/blob/master/jni-test.apk) file (~7mb) incase you only want to see it running. This apk has only been compiled for armeabi-v7a, so let me know if it doesn't work on your phone*
